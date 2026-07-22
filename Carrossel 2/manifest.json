@@ -1,0 +1,116 @@
+{
+  "slug": "profissoes-sem-registro",
+  "title": "As profissões que existem no mercado e não existem no papel",
+  "topic": "Novas profissões (UGC creator, TikTok Shop/afiliado, blogueiro) e o impacto no mercado de trabalho tradicional",
+  "audience": "Publicitários, marqueteiros, empreendedores e criadores",
+  "interests": ["Creator economy", "Mercado de trabalho", "Social commerce"],
+  "status": "ready",
+  "currentStage": "publish",
+  "thesis": "O dinheiro migrou da mídia tradicional para os criadores, mas as pessoas não migraram junto — nasceram ocupações reais que não viraram profissões: sem CBO, sem piso e sem nem um cachê medido por alguém que não esteja vendendo o curso.",
+  "artDir": "artes-hagios",
+  "slides": [
+    {
+      "order": 1,
+      "role": "GANCHO",
+      "kind": "cover",
+      "title": "UGC CREATOR, AFILIADO, BLOGUEIRO. NO PAPEL, NÃO EXISTEM.",
+      "body": "O mercado de criadores caminha para US$ 480 bilhões até 2027. Mas nenhuma dessas funções tem registro no Ministério do Trabalho.",
+      "imageStrategy": "source",
+      "file": "01-capa.png",
+      "sourceUrl": "https://cbo.mte.gov.br/cbosite/pages/pesquisas/BuscaPorTitulo.jsf"
+    },
+    {
+      "order": 2,
+      "role": "DESLOCAMENTO",
+      "kind": "dark",
+      "title": "O DINHEIRO SAIU DA TV E INVENTOU CARGOS NO CAMINHO.",
+      "body": "Entre 2013 e 2025 a TV linear caiu de 41,3% para 12,4% do investimento global de mídia. Em maio de 2025 o TikTok Shop chega ao Brasil e cria a função do afiliado.",
+      "imageStrategy": "source",
+      "file": "02-deslocamento.png",
+      "sourceUrl": "https://newsroom.tiktok.com/tiktok-shop-cresce-102-vezes-em-seu-primeiro-ano-no-brasil?lang=pt-BR"
+    },
+    {
+      "order": 3,
+      "role": "VIRADA",
+      "kind": "paper",
+      "title": "QUASE NINGUÉM LARGOU O EMPREGO. TODO MUNDO EMPILHOU MAIS UM.",
+      "body": "Só 25,6% vivem exclusivamente de conteúdo. Os outros 74,4% complementam com freela, CLT ou infoproduto. Ninguém trocou de trabalho — empilhou mais um.",
+      "imageStrategy": "source",
+      "file": "03-virada.png",
+      "sourceUrl": "https://n4news.com.br/3-em-cada-10-influenciadores-ainda-nao-monetizam-conteudo-no-brasil-aponta-pesquisa-da-youpix/"
+    },
+    {
+      "order": 4,
+      "role": "TENSÃO",
+      "kind": "signal",
+      "title": "BUSQUE 'UGC CREATOR' NA BASE OFICIAL DE OCUPAÇÕES DO GOVERNO. NÃO ESTÁ LÁ.",
+      "body": "Sem CBO, essas funções não entram no CAGED nem na RAIS. Somem dentro dos 26,1 milhões por conta própria do IBGE.",
+      "imageStrategy": "source",
+      "file": "04-tensao.png",
+      "sourceUrl": "https://cbo.mte.gov.br/cbosite/pages/pesquisas/BuscaPorTitulo.jsf"
+    },
+    {
+      "order": 5,
+      "role": "FECHAMENTO",
+      "kind": "dark",
+      "title": "NÃO É FALTA DE TRABALHO. É FALTA DE REGISTRO.",
+      "body": "A ocupação já existe no mercado. Ela ainda não existe no papel — e é por isso que o único número sobre quanto um UGC creator ganha vem de quem vende o curso.",
+      "imageStrategy": "none",
+      "file": "05-fechamento.png"
+    },
+    {
+      "order": 6,
+      "role": "CTA",
+      "kind": "dark",
+      "title": "O MOVIMENTO HÁGIOS AJUDA EMPREENDEDORES A SE ADAPTAREM À NOVA ERA DA INTELIGÊNCIA ARTIFICIAL.",
+      "body": "Comenta \"IA\" e eu te mando o primeiro passo para adaptar seu negócio à nova era da IA.",
+      "imageStrategy": "none",
+      "file": "99-final.png",
+      "fixedCard": true
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://cbo.mte.gov.br/cbosite/pages/pesquisas/BuscaPorTitulo.jsf",
+      "title": "Classificação Brasileira de Ocupações — Busca por Título",
+      "publisher": "Ministério do Trabalho e Emprego",
+      "summary": "Base oficial de ocupações do Brasil. Nenhuma das novas profissões digitais possui CBO.",
+      "relevanceScore": 100
+    },
+    {
+      "url": "https://newsroom.tiktok.com/tiktok-shop-cresce-102-vezes-em-seu-primeiro-ano-no-brasil?lang=pt-BR",
+      "title": "TikTok Shop cresce 102 vezes em seu primeiro ano no Brasil",
+      "publisher": "TikTok Newsroom Brasil",
+      "summary": "Marco de um ano da operação brasileira. Chegada em maio de 2025 criou a função do afiliado.",
+      "relevanceScore": 92
+    },
+    {
+      "url": "https://exame.com/marketing/maioria-dos-influenciadores-brasileiros-ganha-entre-r-500-e-r-2-mil-por-mes-diz-pesquisa/",
+      "title": "Maioria dos influenciadores brasileiros ganha entre R$ 500 e R$ 2 mil por mês",
+      "publisher": "Exame · Influency.me + Opinion Box",
+      "summary": "25,6% vivem exclusivamente de conteúdo; 74,4% complementam com freela, CLT ou infoproduto.",
+      "relevanceScore": 95
+    },
+    {
+      "url": "https://n4news.com.br/3-em-cada-10-influenciadores-ainda-nao-monetizam-conteudo-no-brasil-aponta-pesquisa-da-youpix/",
+      "title": "3 em cada 10 influenciadores ainda não monetizam conteúdo no Brasil",
+      "publisher": "N4 News · YouPix",
+      "summary": "28,17% não monetizam nada; 17% dos que ganham R$ 5–20 mil mantêm emprego duplo.",
+      "relevanceScore": 94
+    },
+    {
+      "url": "https://www.mediapost.com/publications/article/408700/",
+      "title": "Global Forecast: Linear TV Spend To Drop",
+      "publisher": "MediaPost · WARC",
+      "summary": "TV linear caiu de 41,3% para 12,4% do investimento global de mídia entre 2013 e 2025.",
+      "relevanceScore": 90
+    },
+    {
+      "url": "https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/45759-pnad-continua-em-2025-taxa-anual-de-desocupacao-foi-de-5-6-enquanto-taxa-de-subutilizacao-foi-14-5",
+      "title": "PNAD Contínua: em 2025, taxa anual de desocupação foi de 5,6%",
+      "publisher": "IBGE",
+      "summary": "26,1 milhões de trabalhadores por conta própria — onde os criadores ficam diluídos.",
+      "relevanceScore": 85
+    }
+  ]
+}

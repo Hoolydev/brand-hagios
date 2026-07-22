@@ -1,0 +1,32 @@
+# dependências
+node_modules/
+.pnp
+.pnp.*
+
+# build
+.next/
+.vinext/
+out/
+dist/
+build/
+.wrangler/
+tsconfig.tsbuildinfo
+
+# ambiente — NUNCA versionar chaves
+.env
+.env.*
+!.env.example
+
+# python
+.venv/
+__pycache__/
+*.pyc
+
+# sistema
+.DS_Store
+*.pem
+npm-debug.log*
+yarn-error.log*
+
+# saídas temporárias dos agentes
+studio/agents/output/

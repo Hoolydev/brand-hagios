@@ -1,0 +1,37 @@
+{
+  "slug": "hagios-ia-2026",
+  "title": "GPT-5.6 × Claude Sonnet 5: o modelo saiu da janela de chat",
+  "topic": "A disputa entre GPT-5.6 e Claude Sonnet 5 deixou de ser sobre chat e passou a ser sobre execução — agentes, browser, terminal e checkpoints",
+  "audience": "Times de marca, produto e criadores acompanhando IA",
+  "interests": ["IA", "Agentes", "Interfaces"],
+  "status": "ready",
+  "currentStage": "publish",
+  "thesis": "A imagem não enfeita a tese. Ela é parte da prova: uma arte sobre IA não precisa ilustrar inteligência, precisa mostrar o sistema que está sendo discutido.",
+  "artDir": "Hagios-IA-2026-v3",
+  "filePattern": "{n:02d}-hagios-ia-2026-v3.png",
+  "slides": [
+    { "order": 1, "role": "GANCHO", "kind": "cover", "title": "GPT-5.6 × CLAUDE SONNET 5: O MODELO SAIU DA JANELA DE CHAT.", "body": "Dois produtos, um novo fluxo. Recortes oficiais das páginas de lançamento.", "imageStrategy": "source", "sourceUrl": "https://openai.com/index/gpt-5-6/" },
+    { "order": 2, "role": "LEITURA", "kind": "dark", "title": "DOIS SISTEMAS, DUAS APOSTAS DIFERENTES.", "body": "OpenAI posiciona família e escala. Anthropic posiciona agente e execução.", "imageStrategy": "source", "sourceUrl": "https://openai.com/index/gpt-5-6/" },
+    { "order": 3, "role": "LEITURA", "kind": "dark", "title": "O AGENTE ENTROU NO TIME.", "body": "Browser, terminal e checkpoints. Não é só escrever a próxima frase.", "imageStrategy": "source", "sourceUrl": "https://www.anthropic.com/news/claude-sonnet-5" },
+    { "order": 4, "role": "LEITURA", "kind": "paper", "title": "A DISPUTA MUDOU DE LUGAR.", "body": "Deixou de ser qualidade de resposta e virou capacidade de execução.", "imageStrategy": "generated" },
+    { "order": 5, "role": "LEITURA", "kind": "signal", "title": "A INTERFACE TAMBÉM É ARGUMENTO.", "body": "Uma arte sobre IA não precisa ilustrar inteligência. Precisa mostrar o sistema que está sendo discutido.", "imageStrategy": "source", "sourceUrl": "https://www.anthropic.com/news/claude-sonnet-5" },
+    { "order": 6, "role": "LEITURA", "kind": "paper", "title": "O QUE O PRODUTO PROMETE × O QUE A IMAGEM PROVA.", "body": "Recortes das páginas oficiais como evidência editorial, com atribuição.", "imageStrategy": "source", "sourceUrl": "https://openai.com/index/gpt-5-6/" },
+    { "order": 7, "role": "FECHAMENTO", "kind": "dark", "title": "NÃO É CLAUDE OU GPT. É TER ALGO A PROVAR.", "body": "A imagem não enfeita a tese. Ela é parte da prova.", "imageStrategy": "none" }
+  ],
+  "sources": [
+    {
+      "url": "https://openai.com/index/gpt-5-6/",
+      "title": "GPT-5.6: Frontier intelligence that scales with your ambition",
+      "publisher": "OpenAI",
+      "summary": "Página oficial de lançamento, 09 jul 2026.",
+      "relevanceScore": 100
+    },
+    {
+      "url": "https://www.anthropic.com/news/claude-sonnet-5",
+      "title": "Introducing Claude Sonnet 5",
+      "publisher": "Anthropic",
+      "summary": "Página oficial de lançamento, 30 jun 2026.",
+      "relevanceScore": 100
+    }
+  ]
+}

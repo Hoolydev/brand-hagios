@@ -1,0 +1,117 @@
+{
+  "slug": "as-duas-portas",
+  "title": "As duas portas estão abertas",
+  "topic": "O tamanho real do mercado de TikTok Shop, como funciona a comissão do afiliado e o contraste com o empresário que não acha mão de obra",
+  "audience": "Empreendedores e pessoas avaliando entrar nas novas profissões digitais",
+  "interests": ["TikTok Shop", "Social commerce", "Mercado de trabalho"],
+  "status": "ready",
+  "currentStage": "publish",
+  "thesis": "O mercado de social commerce é real e a barreira de entrada é zero — enquanto 80% das empresas brasileiras não conseguem contratar. As duas portas estão abertas.",
+  "artDir": "artes",
+  "slides": [
+    {
+      "order": 1,
+      "role": "GANCHO",
+      "kind": "cover",
+      "title": "O TIKTOK SHOP CRESCEU 102 VEZES EM UM ANO NO BRASIL: A PROFISSÃO QUE PAGA ATÉ 30% DE COMISSÃO E NÃO EXIGE DIPLOMA",
+      "body": "Fonte: TikTok Newsroom Brasil · Momentum Works · jun 2026",
+      "imageStrategy": "generated",
+      "file": "01-capa-B-gerada.png",
+      "sourceUrl": "https://newsroom.tiktok.com/tiktok-shop-cresce-102-vezes-em-seu-primeiro-ano-no-brasil?lang=pt-BR"
+    },
+    {
+      "order": 2,
+      "role": "TAMANHO",
+      "kind": "dark",
+      "title": "O TIKTOK SHOP SAIU DE US$ 1 MILHÃO PARA US$ 46 MI POR MÊS.",
+      "body": "Em três meses de operação no Brasil o GMV mensal saltou de US$ 1 milhão para US$ 46,1 milhões, segundo a Momentum Works. No mundo, a plataforma movimentou US$ 64,3 bilhões em 2025 — quase o dobro do ano anterior.",
+      "imageStrategy": "source",
+      "file": "02-mercado.png",
+      "sourceUrl": "https://thelowdown.momentum.asia/tiktok-shop-brazil-gmv-grew-close-to-us50m-in-august/"
+    },
+    {
+      "order": 3,
+      "role": "COMO FUNCIONA",
+      "kind": "paper",
+      "title": "VOCÊ NÃO PRECISA TER ESTOQUE. PRECISA SABER VENDER.",
+      "body": "A comissão do afiliado é definida por produto e vai de 5% a 30%, com prática de mercado entre 8% e 15%. O pagamento cai em até 15 dias após a entrega, via PIX, com saque mínimo de R$ 50. E 68% dos empreendedores da plataforma vendem só com alcance orgânico.",
+      "imageStrategy": "source",
+      "file": "03-comissao.png",
+      "sourceUrl": "https://exame.com/negocios/tiktok-shop-cresce-102-vezes-em-um-ano-e-acelera-compras-por-video-no-brasil/"
+    },
+    {
+      "order": 4,
+      "role": "PROVA",
+      "kind": "signal",
+      "title": "UMA LOJA VENDEU R$ 17 MILHÕES. UMA CRIADORA, R$ 400 MIL EM UMA ÚNICA LIVE.",
+      "body": "A BigHome entrou em dezembro de 2025 e chegou a R$ 17 milhões com 300 afiliados ativos. Vitória Merlos acumula R$ 2,8 milhões em vendas. A Natura fez 52 mil lives em 2025, 60% delas conduzidas por consultoras. Valores de vendas divulgados pelo próprio TikTok.",
+      "imageStrategy": "source",
+      "file": "04-casos.png",
+      "sourceUrl": "https://newsroom.tiktok.com/tiktok-shop-cresce-102-vezes-em-seu-primeiro-ano-no-brasil?lang=pt-BR"
+    },
+    {
+      "order": 5,
+      "role": "CONTRASTE",
+      "kind": "dark",
+      "title": "E 80% DAS EMPRESAS NÃO ACHAM QUEM CONTRATAR.",
+      "body": "77,1% das indústrias paulistas não preencheram vagas e 55% apontam falta de candidatos interessados (FIESP/SENAI-SP). O Brasil precisa qualificar 14 milhões de profissionais até 2027. As duas portas estão abertas.",
+      "imageStrategy": "source",
+      "file": "05-contraste.png",
+      "sourceUrl": "https://noticias.portaldaindustria.com.br/noticias/educacao/brasil-precisa-qualificar-14-milhoes-de-profissionais-ate-2027-segundo-senai/"
+    },
+    {
+      "order": 6,
+      "role": "CTA",
+      "kind": "dark",
+      "title": "O MOVIMENTO HÁGIOS AJUDA EMPREENDEDORES A SE ADAPTAREM À NOVA ERA DA INTELIGÊNCIA ARTIFICIAL.",
+      "body": "Comenta \"IA\" e eu te mando o primeiro passo para adaptar seu negócio à nova era da IA.",
+      "imageStrategy": "none",
+      "file": "99-final.png",
+      "fixedCard": true
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://thelowdown.momentum.asia/tiktok-shop-brazil-gmv-grew-close-to-us50m-in-august/",
+      "title": "TikTok Shop Brazil GMV grew close to US$50m in August",
+      "publisher": "Momentum Works",
+      "summary": "GMV mensal brasileiro saltou de US$ 1 mi (mai/2025) para US$ 46,1 mi (ago/2025).",
+      "relevanceScore": 98
+    },
+    {
+      "url": "https://newsroom.tiktok.com/tiktok-shop-cresce-102-vezes-em-seu-primeiro-ano-no-brasil?lang=pt-BR",
+      "title": "TikTok Shop cresce 102 vezes em seu primeiro ano no Brasil",
+      "publisher": "TikTok Newsroom Brasil",
+      "summary": "Casos de BigHome, Vitória Merlos, Natura e Riachuelo. Valores de vendas, não de renda.",
+      "relevanceScore": 95
+    },
+    {
+      "url": "https://exame.com/negocios/tiktok-shop-cresce-102-vezes-em-um-ano-e-acelera-compras-por-video-no-brasil/",
+      "title": "TikTok Shop cresce 102 vezes em um ano e acelera compras por vídeo no Brasil",
+      "publisher": "Exame",
+      "summary": "Cobertura do marco de um ano e do modelo de compra por descoberta.",
+      "relevanceScore": 90
+    },
+    {
+      "url": "https://www.manpowergroup.com.br/insights/estudos/pesquisa-de-escassez-de-talentos-2026",
+      "title": "Pesquisa de Escassez de Talentos 2026",
+      "publisher": "ManpowerGroup Brasil",
+      "summary": "80% dos empregadores brasileiros têm dificuldade para contratar. 1.020 entrevistas no Brasil.",
+      "relevanceScore": 97
+    },
+    {
+      "url": "https://istoedinheiro.com.br/fiesp-77-das-industrias-paulistas-enfrentam-dificuldade-para-contratar-novos-funcionarios",
+      "title": "Fiesp: 77% das indústrias paulistas enfrentam dificuldade para contratar",
+      "publisher": "IstoÉ Dinheiro · FIESP/SENAI-SP/Locomotiva",
+      "summary": "77,1% não preencheram vagas; 55% apontam falta de candidatos interessados. 58% dos jovens querem o próprio negócio contra 11% que veem a indústria como carreira.",
+      "relevanceScore": 96
+    },
+    {
+      "url": "https://noticias.portaldaindustria.com.br/noticias/educacao/brasil-precisa-qualificar-14-milhoes-de-profissionais-ate-2027-segundo-senai/",
+      "title": "Brasil precisa qualificar 14 milhões de profissionais até 2027, segundo SENAI",
+      "publisher": "Agência de Notícias da Indústria · CNI/SENAI",
+      "summary": "Mapa do Trabalho Industrial 2025-2027: 2,2 mi de formação nova + 11,8 mi de requalificação.",
+      "relevanceScore": 94
+    }
+  ]
+}
