@@ -2,7 +2,7 @@
 
 import { LoaderCircle, LogIn } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -10,6 +10,19 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [faltando, setFaltando] = useState<string[]>([]);
+
+  useEffect(() => {
+    void fetch("/api/system/status")
+      .then((response) => response.json())
+      .then((status: { database?: boolean; session?: boolean }) => {
+        const pendencias: string[] = [];
+        if (!status.database) pendencias.push("DATABASE_URL");
+        if (!status.session) pendencias.push("AUTH_SECRET");
+        setFaltando(pendencias);
+      })
+      .catch(() => setFaltando([]));
+  }, []);
 
   async function submit(event: React.FormEvent) {
     event.preventDefault();
@@ -55,6 +68,11 @@ export default function LoginPage() {
             Senha
             <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} autoComplete="current-password" required placeholder="••••••••" />
           </label>
+          {faltando.length > 0 && (
+            <p className="login-error">
+              Ambiente incompleto: {faltando.join(" e ")} não configurada{faltando.length > 1 ? "s" : ""} no servidor.
+            </p>
+          )}
           {error && <p className="login-error">{error}</p>}
           <button type="submit" disabled={isSubmitting}>
             {isSubmitting ? <LoaderCircle className="spin" size={16} /> : <LogIn size={16} />}

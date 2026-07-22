@@ -76,7 +76,7 @@ type SourceItem = {
 };
 
 type AgentRun = { id: string; agent: string; status: string; model?: string | null; error?: string | null; startedAt?: string | null; completedAt?: string | null };
-type RuntimeStatus = { database: boolean; ai: boolean; provider: string | null; models: { text: string; image: string } | null; research: boolean; openai: boolean; auth: boolean; storage: boolean };
+type RuntimeStatus = { database: boolean; ai: boolean; provider: string | null; models: { text: string; image: string } | null; research: boolean; openai: boolean; session: boolean; authRequired: boolean; storage: boolean };
 
 
 
@@ -816,7 +816,7 @@ export default function Home() {
                     <span className={runtimeStatus?.database ? "ready" : "missing"}>{runtimeStatus?.database ? <Check size={13} /> : <X size={13} />} PostgreSQL</span>
                     <span className={runtimeStatus?.ai ? "ready" : "missing"}>{runtimeStatus?.ai ? <Check size={13} /> : <X size={13} />} IA {runtimeStatus?.provider ?? ""}</span>
                     <span className={parsedSourceUrls().length >= 2 ? "ready" : "missing"}>{parsedSourceUrls().length >= 2 ? <Check size={13} /> : <X size={13} />} Matérias</span>
-                    <span className={runtimeStatus?.auth ? "ready" : "missing"}>{runtimeStatus?.auth ? <Check size={13} /> : <X size={13} />} Login</span>
+                    <span className={runtimeStatus?.session ? "ready" : "missing"}>{runtimeStatus?.session ? <Check size={13} /> : <X size={13} />} Sessão</span>
                     <span className={runtimeStatus?.storage ? "ready" : "missing"}>{runtimeStatus?.storage ? <Check size={13} /> : <X size={13} />} Storage</span>
                   </div>
                 </div>
