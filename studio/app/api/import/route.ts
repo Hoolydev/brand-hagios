@@ -74,6 +74,14 @@ async function findManifests() {
 }
 
 export async function POST() {
+  // O importador lê as pastas do acervo e copia artes para public/: só faz
+  // sentido rodando local. Em serverless o filesystem é somente leitura.
+  if (process.env.VERCEL) {
+    return NextResponse.json({
+      error: "LOCAL_ONLY",
+      message: "A importação lê as pastas do acervo em disco e só roda no ambiente local.",
+    }, { status: 501 });
+  }
   if (!isDatabaseConfigured()) {
     return NextResponse.json({ error: "DATABASE_URL não configurada" }, { status: 503 });
   }
@@ -191,6 +199,9 @@ export async function POST() {
 }
 
 export async function GET() {
+  if (process.env.VERCEL) {
+    return NextResponse.json({ vault: null, encontrados: [], localOnly: true });
+  }
   const manifests = await findManifests();
   return NextResponse.json({
     vault: VAULT,
