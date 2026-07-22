@@ -13,7 +13,7 @@ sys.path.insert(0, "/Users/holydev/Documents/Brand-Hagios/kit")
 
 from PIL import Image, ImageDraw
 
-from hagios_kit import (BRAND, FINAL_CARD, GOLD, GREY_DARK, H, INK, M, TERRA, W, WHITE,
+from hagios_kit import (BRAND, KIT, FINAL_CARD, GOLD, GREY_DARK, H, INK, M, TERRA, W, WHITE,
                         bold, cond, fit_seg, headline_seg, header, reg, rich, w_of)
 
 # ---------------------------------------------------------------- oferta
@@ -39,8 +39,8 @@ def build():
     header(d, True, left="POWERED BY HÁGIOS", mid="@HAGIOS.AI", right="2026 //")
 
     # logo em ouro
-    logo = Image.open(BRAND / "hagios-logo-transparent.png").convert("RGBA")
-    lw = 250
+    logo = Image.open(KIT / "hagios-wordmark-gold.png").convert("RGBA")
+    lw = 300
     logo = logo.resize((lw, int(logo.height * lw / logo.width)), Image.LANCZOS)
     c.paste(logo, (M, 104), logo)
 

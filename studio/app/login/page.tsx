@@ -38,7 +38,7 @@ export default function LoginPage() {
   return (
     <main className="login-shell">
       <section className="login-brand">
-        <img src="/brand/hagios-logo-transparent.png" alt="HÁGIOS" />
+        <img src="/brand/hagios-wordmark-gold.png" alt="HÁGIOS" />
         <p>HÁGIOS / CULTURE ENGINE</p>
         <h1>Pesquise sinais.<br />Construa uma tese.<br />Publique com prova.</h1>
         <span>Carrosséis editoriais com fonte rastreável — pesquisa, roteiro, copy e arte no mesmo lugar.</span>

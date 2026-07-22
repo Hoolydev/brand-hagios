@@ -462,7 +462,7 @@ export default function Home() {
     <main className="app-shell">
       <aside className="icon-rail" aria-label="Navegação principal">
         <button className="brand-mark" aria-label="Voltar para os projetos" title="Voltar para os projetos" onClick={goHome}>
-          <img src="/brand/hagios-mark-transparent.png" alt="" />
+          <img src="/brand/hagios-wordmark-gold.png" alt="HÁGIOS" />
         </button>
         <nav>
           <button className={`rail-button ${workspaceView === "home" ? "active" : ""}`} aria-label="Projetos" title="Projetos" onClick={goHome}><LayoutDashboard size={19} /></button>
