@@ -73,10 +73,19 @@ npm run db:migrate   # aplica migrations
 
 ## Deploy na Vercel
 
-O `package.json` fica em `studio/`, não na raiz. O [`vercel.json`](vercel.json) aponta os
-comandos para lá — sem ele a Vercel não encontra o app e o deploy falha.
+**Passo obrigatório:** em *Settings → Build and Deployment → Root Directory*, defina:
 
-**Variáveis obrigatórias** no painel da Vercel (Settings → Environment Variables):
+```
+studio
+```
+
+Sem isso a Vercel procura o `package.json` na raiz do repositório, não encontra o Next
+e o build falha com `No Next.js version detected`. Essa configuração **não pode** ser
+feita pelo `vercel.json` — é a única que existe apenas no painel.
+
+Feito isso, a Vercel lê `studio/vercel.json` e o build funciona sem mais nada.
+
+**Variáveis obrigatórias** (Settings → Environment Variables):
 
 | Variável | Para quê |
 |---|---|
@@ -87,7 +96,7 @@ comandos para lá — sem ele a Vercel não encontra o app e o deploy falha.
 | `FAL_LLM_MODEL` | `anthropic/claude-sonnet-4.5` |
 | `FAL_IMAGE_MODEL` | `fal-ai/flux-pro/v1.1-ultra` |
 
-Depois do primeiro deploy, crie o administrador apontando o script para o banco de produção:
+Depois do primeiro deploy, crie o administrador apontando para o banco de produção:
 
 ```bash
 DATABASE_URL='<url-de-producao>' ADMIN_EMAIL=voce@empresa.com \
