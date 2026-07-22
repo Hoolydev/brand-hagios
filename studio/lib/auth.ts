@@ -10,7 +10,8 @@ import { cookies } from "next/headers";
 
 const scrypt = promisify(scryptCb) as (secret: string, salt: string, keylen: number) => Promise<Buffer>;
 
-export const SESSION_COOKIE = "hagios_session";
+export { SESSION_COOKIE } from "@/lib/session-cookie";
+import { SESSION_COOKIE } from "@/lib/session-cookie";
 const MAX_AGE_SECONDS = 60 * 60 * 24 * 30; // 30 dias
 
 function secret() {

@@ -1,7 +1,13 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { SESSION_COOKIE, readSessionToken } from "@/lib/auth";
+import { SESSION_COOKIE, looksLikeValidSession } from "@/lib/session-cookie";
 
-const PUBLIC_PATHS = ["/login", "/api/auth/login", "/api/auth/logout", "/api/auth/me", "/api/system/status"];
+const PUBLIC_PATHS = [
+  "/login",
+  "/api/auth/login",
+  "/api/auth/logout",
+  "/api/auth/me",
+  "/api/system/status",
+];
 
 export default function middleware(request: NextRequest) {
   if (process.env.AUTH_REQUIRED !== "true") return NextResponse.next();
@@ -9,7 +15,7 @@ export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   if (PUBLIC_PATHS.some((path) => pathname.startsWith(path))) return NextResponse.next();
 
-  if (readSessionToken(request.cookies.get(SESSION_COOKIE)?.value)) return NextResponse.next();
+  if (looksLikeValidSession(request.cookies.get(SESSION_COOKIE)?.value)) return NextResponse.next();
 
   // API responde 401; navegação vai para a tela de login
   if (pathname.startsWith("/api/")) {
