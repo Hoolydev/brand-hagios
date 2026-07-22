@@ -1,0 +1,17 @@
+{
+  "name": "brand-hagios",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Estúdio editorial Hágios — carrosséis com fonte rastreável.",
+  "workspaces": ["studio"],
+  "dependencies": {
+    "next": "16.2.6"
+  },
+  "scripts": {
+    "dev": "npm run dev --workspace studio",
+    "build": "npm run build --workspace studio",
+    "start": "npm run start --workspace studio",
+    "lint": "npm run lint --workspace studio",
+    "db:migrate": "npm run db:migrate --workspace studio"
+  }
+}

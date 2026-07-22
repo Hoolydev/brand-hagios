@@ -73,17 +73,11 @@ npm run db:migrate   # aplica migrations
 
 ## Deploy na Vercel
 
-**Passo obrigatório:** em *Settings → Build and Deployment → Root Directory*, defina:
+O repositório é um **workspace npm**: o `package.json` da raiz declara `studio` como
+workspace e o `next` como dependência, para a Vercel detectar o framework sem depender
+de nenhuma configuração no painel. O [`vercel.json`](vercel.json) aponta build e output.
 
-```
-studio
-```
-
-Sem isso a Vercel procura o `package.json` na raiz do repositório, não encontra o Next
-e o build falha com `No Next.js version detected`. Essa configuração **não pode** ser
-feita pelo `vercel.json` — é a única que existe apenas no painel.
-
-Feito isso, a Vercel lê `studio/vercel.json` e o build funciona sem mais nada.
+Basta importar o repositório — **não é preciso mexer em Root Directory**.
 
 **Variáveis obrigatórias** (Settings → Environment Variables):
 
