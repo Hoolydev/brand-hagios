@@ -109,6 +109,8 @@ export default function Home() {
   const [ctaKeyword, setCtaKeyword] = useState("IA");
   const [ctaDelivery, setCtaDelivery] = useState("");
   const [isSavingBrand, setIsSavingBrand] = useState(false);
+  const [isReadingPdf, setIsReadingPdf] = useState(false);
+  const [pdfNotice, setPdfNotice] = useState<string | null>(null);
   const [brandPersisted, setBrandPersisted] = useState(false);
   const [tone, setTone] = useState(74);
   const [showBrief, setShowBrief] = useState(false);
@@ -228,6 +230,34 @@ export default function Home() {
     if (!value || voiceTags.includes(value)) return;
     setVoiceTags((current) => [...current, value]);
     setVoiceInput("");
+  }
+
+  /** Lê o PDF do manual da marca e preenche os campos com o que a IA extrair. */
+  async function importBrandFromPdf(file: File) {
+    setIsReadingPdf(true);
+    setApiError(null);
+    setPdfNotice(null);
+    try {
+      const form = new FormData();
+      form.append("file", file);
+      const response = await fetch("/api/brand-profile/extract", { method: "POST", body: form });
+      if (!response.ok) {
+        setApiError(await readError(response));
+        return;
+      }
+      const data = await response.json() as { name?: string; instagram?: string; audience?: string; positioning?: string; voice?: string[] };
+      // só sobrescreve o que veio preenchido — não apaga o que o usuário já tinha
+      if (data.name) setBrandName(data.name);
+      if (data.instagram) setInstagram(data.instagram);
+      if (data.audience) setBrandAudience(data.audience);
+      if (data.positioning) setBrandPositioning(data.positioning);
+      if (data.voice?.length) setVoiceTags(data.voice);
+      setPdfNotice(`"${file.name}" lido. Confira os campos e clique em Salvar marca.`);
+    } catch {
+      setApiError("Falha ao enviar o documento.");
+    } finally {
+      setIsReadingPdf(false);
+    }
   }
 
   /** Códigos crus da API viram frase legível; o resto cai no texto do servidor. */
@@ -672,7 +702,13 @@ export default function Home() {
                 <label>Instagram<input value={instagram} onChange={(event) => setInstagram(event.target.value)} placeholder="@perfil" /></label>
                 <label>Público<input value={brandAudience} onChange={(event) => setBrandAudience(event.target.value)} placeholder="Ex.: empreendedores e times de marca" /></label>
                 <label>Posicionamento<input value={brandPositioning} onChange={(event) => setBrandPositioning(event.target.value)} placeholder="O que a marca defende" /></label>
-                <div className="upload-zone"><Upload size={18} /><strong>Logo e manual de marca</strong><span>PNG, SVG ou PDF</span><input type="file" aria-label="Enviar logo ou manual de marca" /></div>
+                <label className={`upload-zone ${isReadingPdf ? "reading" : ""}`}>
+                  {isReadingPdf ? <LoaderCircle className="spin" size={18} /> : <Upload size={18} />}
+                  <strong>{isReadingPdf ? "Lendo o documento..." : "Manual da marca (PDF)"}</strong>
+                  <span>{isReadingPdf ? "A IA está extraindo as informações" : "A IA lê e preenche os campos abaixo"}</span>
+                  <input type="file" accept="application/pdf,.pdf" aria-label="Enviar manual da marca em PDF" disabled={isReadingPdf || !runtimeStatus?.ai} onChange={(event) => { const f = event.target.files?.[0]; if (f) void importBrandFromPdf(f); event.target.value = ""; }} />
+                </label>
+                {pdfNotice && <p className="pdf-notice"><Check size={13} /> {pdfNotice}</p>}
                 <div className="palette-row">{brandPalette.map((colour, index) => <span key={`${colour}-${index}`} style={{ background: colour }} title={colour} />)}<button aria-label="Adicionar cor" onClick={() => setBrandPalette((current) => [...current, "#CCCCCC"])}><Plus size={14} /></button></div>
                 <label className="range-label"><span><b>Editorial</b><b>Promocional</b></span><input type="range" min="0" max="100" value={tone} onChange={(event) => setTone(Number(event.target.value))} /></label>
                 <div className="voice-tags">{voiceTags.map((tag) => <span key={tag} onClick={() => setVoiceTags((current) => current.filter((item) => item !== tag))} title="Remover">{tag}</span>)}<button aria-label="Adicionar tom de voz" onClick={addVoiceTag}><Plus size={12} /></button></div>

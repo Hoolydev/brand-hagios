@@ -557,3 +557,6 @@ button { color: inherit; }
 .account-button { display: inline-flex; align-items: center; gap: 5px; height: 30px; padding: 0 11px; border: 1px solid var(--line, #ddd); background: white; font-size: 10px; font-weight: 800; cursor: pointer; }
 .account-button.primary { background: var(--ink, #0e0e0f); color: white; border-color: var(--ink, #0e0e0f); }
 .account-button:hover { border-color: #0e0e0f; }
+.upload-zone.reading { opacity: .8; border-color: var(--ink, #0e0e0f); }
+.upload-zone input[type="file"]:disabled { cursor: not-allowed; }
+.pdf-notice { display: flex; align-items: center; gap: 6px; margin: 0; padding: 8px 10px; background: #eef6ee; border-left: 3px solid #4a8f4a; font-size: 11px; font-weight: 700; color: #2f5f2f; }

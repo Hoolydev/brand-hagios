@@ -10,6 +10,10 @@ const PUBLIC_PATHS = [
 ];
 
 export default function middleware(request: NextRequest) {
+  // O middleware trunca o corpo em 10MB; o upload de PDF precisa passar direto.
+  // A própria rota valida a sessão.
+  if (request.nextUrl.pathname.startsWith("/api/brand-profile/extract")) return NextResponse.next();
+
   if (process.env.AUTH_REQUIRED !== "true") return NextResponse.next();
 
   const { pathname } = request.nextUrl;
