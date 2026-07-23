@@ -105,19 +105,25 @@ export async function POST(_request: Request, context: { params: Promise<{ id: s
       const matchedSource = (item.sourceUrl ? sourceByUrl.get(normalizeUrl(item.sourceUrl) ?? "") : undefined) ?? (item.imageStrategy === "source" ? insertedSources.find((source) => source.imageUrl) : undefined);
       let imageUrl = item.imageStrategy === "source" ? matchedSource?.imageUrl ?? null : null;
       let stored: Awaited<ReturnType<typeof generateEditorialImage>> | null = null;
-      if (item.imageStrategy === "generated" && item.imagePrompt) {
-        stored = await tracked(id, "image", { slide: item.order, prompt: item.imagePrompt }, () => generateEditorialImage(item.imagePrompt!, id));
-        imageUrl = stored.url;
-      }
-      if (item.imageStrategy === "hero") {
-        const heroBrand = item.heroBrand ?? "paz";
-        if (isHeroAgentConfigured()) {
-          stored = await tracked(id, "hero", { slide: item.order, brand: heroBrand }, () => generateHeroImage({ theme: carousel.topic, brand: heroBrand, audience: carousel.audience, carouselId: id }));
-        } else {
-          const prompt = `Retrato fotográfico realista de uma pessoa jovem segurando de frente para a câmera uma lata de energético da marca ${heroBrand}, luz de estúdio limpa, fundo sólido, estilo editorial de rede social`;
-          stored = await tracked(id, "image", { slide: item.order, prompt }, () => generateEditorialImage(prompt, id));
+      // Falha de imagem em uma tela não pode derrubar o carrossel inteiro:
+      // a tela fica sem imagem e o texto (que é o que importa) é preservado.
+      try {
+        if (item.imageStrategy === "generated" && item.imagePrompt) {
+          stored = await tracked(id, "image", { slide: item.order, prompt: item.imagePrompt }, () => generateEditorialImage(item.imagePrompt!, id));
+          imageUrl = stored.url;
         }
-        imageUrl = stored.url;
+        if (item.imageStrategy === "hero") {
+          const heroBrand = item.heroBrand ?? "paz";
+          if (isHeroAgentConfigured()) {
+            stored = await tracked(id, "hero", { slide: item.order, brand: heroBrand }, () => generateHeroImage({ theme: carousel.topic, brand: heroBrand, audience: carousel.audience, carouselId: id }));
+          } else {
+            const prompt = `Retrato fotográfico realista de uma pessoa jovem segurando de frente para a câmera uma lata de energético da marca ${heroBrand}, luz de estúdio limpa, fundo sólido, estilo editorial de rede social`;
+            stored = await tracked(id, "image", { slide: item.order, prompt }, () => generateEditorialImage(prompt, id));
+          }
+          imageUrl = stored.url;
+        }
+      } catch (imageError) {
+        console.error(`imagem da tela ${item.order} falhou:`, imageError);
       }
       return { item, matchedSource, imageUrl, stored };
     }));

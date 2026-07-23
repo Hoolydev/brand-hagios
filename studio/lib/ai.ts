@@ -82,15 +82,24 @@ async function callFal<T>(endpoint: string, body: Record<string, unknown>): Prom
 
 /** Remove cercas ```json que os modelos costumam devolver. */
 export function parseJsonOutput<T>(value: string): T {
-  const clean = value.trim().replace(/^```(?:json)?\s*/i, "").replace(/```$/, "").trim();
+  let clean = value.trim().replace(/^```(?:json)?\s*/i, "").replace(/```$/, "").trim();
+  const start = clean.indexOf("{");
+  const end = clean.lastIndexOf("}");
+  if (start >= 0 && end > start) clean = clean.slice(start, end + 1);
+
   try {
     return JSON.parse(clean) as T;
-  } catch {
-    // alguns modelos prefixam texto antes do objeto
-    const start = clean.indexOf("{");
-    const end = clean.lastIndexOf("}");
-    if (start >= 0 && end > start) return JSON.parse(clean.slice(start, end + 1)) as T;
-    throw new Error(`Resposta não é JSON válido: ${clean.slice(0, 200)}`);
+  } catch (first) {
+    // tentativa de reparo: aspas retas “inteligentes” e vírgula sobrando antes de } ]
+    const reparado = clean
+      .replace(/[\u201C\u201D]/g, '\"')
+      .replace(/[\u2018\u2019]/g, "'")
+      .replace(/,\s*([}\]])/g, "$1");
+    try {
+      return JSON.parse(reparado) as T;
+    } catch {
+      throw first instanceof Error ? first : new Error("Resposta não é JSON válido");
+    }
   }
 }
 
@@ -111,7 +120,17 @@ export async function completeText(prompt: string): Promise<string> {
 }
 
 export async function completeJson<T>(prompt: string): Promise<T> {
-  return parseJsonOutput<T>(await completeText(prompt));
+  const first = await completeText(prompt);
+  try {
+    return parseJsonOutput<T>(first);
+  } catch (error) {
+    // o modelo às vezes quebra o JSON (aspas internas etc.): pede de novo, estrito
+    const retry = await completeText(
+      `${prompt}\n\nATENÇÃO: a resposta anterior não era JSON válido. Responda SOMENTE com JSON válido, ` +
+      `sem texto fora do objeto, e escape aspas dentro de strings com \\". Erro: ${error instanceof Error ? error.message : "parse"}`,
+    );
+    return parseJsonOutput<T>(retry);
+  }
 }
 
 /** Imagem editorial 4:5. Devolve os bytes do PNG. */
